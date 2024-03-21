@@ -9,7 +9,7 @@ const MainContainer = () => {
   // console.log(trailer)
   if(!movie) return;
 
-  const {overview, id, title} = movie[8];
+  const {overview, id, title} = movie[6];
   return (
     <div className='w-[vw]' >
         <VideoTitle title={title} overview={overview}/>

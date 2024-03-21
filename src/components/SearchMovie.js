@@ -4,12 +4,14 @@ import { options } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setMovieSearchDetails } from "../redux/searchSlice";
 import { setIsLoading } from "../redux/userSlice";
-
+import MovieList from "./MovieList"
 
 const SearchMovie = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const dispatch = useDispatch()
   const isLoading = useSelector(store=> store.app.isLoading)
+  const x = useSelector(store=> store.search)
+  console.log(x.searchedMovieName)
 
   const searchHandler = (e)=> {
     setSearchMovie(e.target.value)
@@ -36,7 +38,7 @@ const SearchMovie = () => {
 
   return (
     <>
-    <div className="flex justify-center p-[10%] w-[100%]">
+    <div className="flex justify-center pt-[10%] w-[100%]">
       <form className="w-[50%]" onSubmit={submitHandler}>
         <div className="flex justify-between shadow-md border-gray-200 rounded-lg w-[100%] p-3">
           <input value={searchMovie} onChange={searchHandler} type="text" placeholder="Enter here..." className="outline-none w-full text-lg rounded-sm" />
@@ -44,8 +46,9 @@ const SearchMovie = () => {
         </div>
       </form>
     </div>
-    <div>
-      <h1>Avaatar</h1>
+    <div className="p-3">
+      <h1 className="text-xl font-semibold">Results for : {x.movieName}</h1>
+      <MovieList movies={x.searchedMovieName}/>
     </div>
     </>
   );

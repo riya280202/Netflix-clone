@@ -8,7 +8,7 @@ const MovieList = (props) => {
         <div className='flex overflow-x-auto cursor-pointer no-scrollbar'>
             <div className='flex items-center'>
                 {/* {props.movies>0 ? props.movies.map(movie => <MovieCard key={movie.id} posterPath={movie.poster_path} />): <h1 className='text-white'>No movies available</h1>} */}
-                {props.movies?.map(movie => <MovieCard key={movie.id} posterPath={movie.poster_path} />)}
+                {props.movies?.map(movie => <MovieCard key={movie.id} posterPath={movie.poster_path} title={movie.title} id={movie.id} />)}
             </div>
         </div>
     </div>
