@@ -14,6 +14,8 @@ const Browse = () => {
   const user = useSelector((store)=> store.app.user)
   const navigate = useNavigate();
   const toggle = useSelector(store => store.movie.toggle)
+  
+
 
   useNowPlayingMovie();
   usePopularMovies();

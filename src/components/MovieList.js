@@ -3,7 +3,7 @@ import MovieCard from './MovieCard'
 
 const MovieList = (props) => {
   return (
-    <div className=''>
+    <div className='w[vw]'>
         <h1 className='text-3xl text-white mb-3 pt-3'>{props.title}</h1>
         <div className='flex overflow-x-auto cursor-pointer no-scrollbar'>
             <div className='flex items-center'>

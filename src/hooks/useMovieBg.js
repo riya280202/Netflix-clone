@@ -1,7 +1,7 @@
 import axios from "axios";
 import { options } from "../utils/constant";
 import { useDispatch } from "react-redux";
-import { getTrailerMovie } from "../redux/movieSlice";
+import { getTrailerMovieKey } from "../redux/movieSlice";
 
 const useMovieBg = async(movieId) => {
     const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const useMovieBg = async(movieId) => {
         const trailer = res?.data?.results?.filter((item)=> {
             return item.type==="Trailer"
         })
-        dispatch(getTrailerMovie(trailer.length>0 ? trailer[0]: res.data.results[0]))
+        dispatch(getTrailerMovieKey(trailer.length>0 ? trailer[0].key: res.data.results[0].key))
     } catch (error) {
         console.log(error)
     }
